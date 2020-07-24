@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-
 import { PageHeader, Button, Descriptions, Switch } from 'antd';
+import { GoogleOutlined } from '@ant-design/icons';
+import links from '../../data/links.json';
 
 interface PageHeaderProps {
   congregationName: string,
@@ -24,7 +25,14 @@ const HeaderInfo = (props: PageHeaderProps) => {
         extra={[
           // <Switch onChange={changeTheme} />,
           <Button key="2">Operation 2</Button>,
-          <Button key="1">Operation 1</Button>
+        <Button 
+          icon={<GoogleOutlined />}
+          key="1"
+          href={links.informationBoard}
+          target="_blank"
+        >
+          Information Board
+        </Button>
         ]}
       >
         

@@ -5,7 +5,8 @@ import { Layout } from 'antd';
 import Navigation from './modules/Header/Navigation';
 import HeadingInfo from './modules/Header/HeaderInfo';
 import FourZeroFour from './modules/FourZeroFour';
-import Homepage from './modules/Homepage';
+import Homepage from './modules/Views/Homepage';
+import Publishers from './modules/Views/Publishers';
 
 import 'antd/dist/antd.css'
 
@@ -18,7 +19,7 @@ const headerProps = {
 }
 
 const App = () => {
-  const [current, setCurrent] = useState<string>('home')
+  const [current, setCurrent] = useState<string>('home');
 
   const handleNavigation = (e: any) => {
     setCurrent(e.key);
@@ -27,10 +28,11 @@ const App = () => {
 
   return (
     <>
-      <HeadingInfo {...headerProps} />
-      <Navigation {...{ handleNavigation, current }} />
       <Router>
+        <HeadingInfo {...headerProps} />
+        <Navigation {...{ handleNavigation, current }} />
         <Switch>
+          <Route path="/publishers" component={Publishers} />
           <Route path={"/" || "/home"} component={Homepage} />
           <Route component={FourZeroFour} />
         </Switch>
